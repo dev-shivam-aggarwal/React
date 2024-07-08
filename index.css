@@ -1,6 +1,76 @@
-#root{
-    color:red;
+.main{
+    margin-left: calc(10% + 36px);
+    margin-right:calc(10% + 36px);
 }
-h2{
-    color:green;
+.header{
+    width: 100%;
+    box-shadow: 0 15px 40px -20px rgba(40,44,63,.15);
+    height: 60px;
+}
+.container{
+    width: 100%;
+}
+.row{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.logo{
+    width: 97px;
+    cursor: pointer;
+
+}
+
+.menu ul{
+    list-style-type: none;
+    display: flex;
+}
+.menu li{
+    margin-right: 30px;
+    cursor: pointer;
+}
+.card{
+    width: 238px;
+    height: auto;
+    border-radius: 20px;
+    padding: 7px 10px;
+    cursor: pointer;
+}
+.resturant-img{
+    width: 238px;
+    border-radius: 20px;
+}
+.resturant-card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+.filter-btn{
+    margin: 10px;
+    border: none;
+    background: blue;
+    cursor: pointer;
+    color:white;
+    border-radius: 50px;
+    padding:10px;
+}
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-box{
+    background: #f0f0f0;
+    width: 238px;
+    height: 300px;
+    margin: 22px 56px;
+}
+.signin-btn{
+    background: none;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+.signin-btn:hover{
+    color:red;
+    cursor: pointer;
 }
