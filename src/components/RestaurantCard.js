@@ -1,6 +1,7 @@
 import { SRC_URL } from "../utils/helpers";
 const RestaurantCard = ({ data }) => {
-  const { name, avgRatingString, cuisines, areaName, cloudinaryImageId } = data.info;
+  const { name, avgRatingString, cuisines, areaName, cloudinaryImageId } =
+    data.info;
   return (
     <div className="card">
       <img

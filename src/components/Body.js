@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { MOCK_DATA } from "../utils/helpers";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -28,22 +29,30 @@ const Body = () => {
     setTempResList(finalData);
   };
 
+  console.log(tempResList)
   return restaurantList.length === 0 ? (
     <Shimmer />
   ) : (
     <div>
       <h1>Top restaurant chains in Chandigarh</h1>
+      <form>
       <input
         type="text"
         placeholder="Search Here"
         className="search"
         value={searchText}
         onChange={(e) => {
+            e.preventDefault();
           setSearchText(e.target.value);
+          const filteredList = restaurantList.filter((x) =>
+            x.info.name.toLowerCase().includes(searchText.toLowerCase())
+          );
+          setTempResList(filteredList);
         }}
       ></input>
       <button
-        onClick={() => {
+        onClick={(e) => {
+            e.preventDefault();
           const filteredList = restaurantList.filter((x) =>
             x.info.name.toLowerCase().includes(searchText.toLowerCase())
           );
@@ -52,9 +61,10 @@ const Body = () => {
       >
         Search
       </button>
+      </form>
       <button
         className="filter-btn"
-        onClick={() => {
+        onClick={(e) => {
           filterResult();
         }}
       >
@@ -62,7 +72,7 @@ const Body = () => {
       </button>
       <div className="resturant-card">
         {tempResList.map((res) => (
-          <RestaurantCard data={res} />
+          <Link key={res.info.id} to={"/restaurant/" + res.info.id}><RestaurantCard data={res} /></Link>
         ))}
       </div>
     </div>
